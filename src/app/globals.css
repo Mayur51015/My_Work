@@ -1,0 +1,461 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: #F4F1EA;
+  --color-bg-alt: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-text: #20201D;
+  --color-text-secondary: #69665F;
+  --color-accent: #B4512C;
+  --color-accent-secondary: #5B6650;
+  --color-border: #D8D2C7;
+  --color-border-subtle: #E8E3D8;
+  --color-white: #FFFFFF;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
+}
+
+/* ——— Dark theme ——— */
+
+[data-theme="dark"] {
+  --color-bg: #171714;
+  --color-bg-alt: #22221E;
+  --color-surface: #22221E;
+  --color-text: #F1EEE6;
+  --color-text-secondary: #AAA59A;
+  --color-accent: #D06A43;
+  --color-accent-secondary: #849176;
+  --color-border: #3A3933;
+  --color-border-subtle: #2A2924;
+  --color-white: #F1EEE6;
+}
+
+/* ——— Base ——— */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* ——— Typography ——— */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* ——— Page Load Keyframes ——— */
+
+@keyframes pageEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.animate-nav-load {
+  animation: navEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-hero-1 {
+  animation: pageEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.animate-hero-2 {
+  animation: pageEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+}
+
+.animate-hero-3 {
+  animation: pageEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.animate-hero-4 {
+  animation: pageEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.48s both;
+}
+
+.animate-hero-5 {
+  animation: pageEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+.status-pulse {
+  animation: pulseDot 2.4s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ——— Scroll Reveal System ——— */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Horizontal slide for Section Numbers */
+.reveal-number {
+  opacity: 0;
+  transform: translateX(-14px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.visible .reveal-number,
+.visible .reveal-number {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered sequential reveals */
+.reveal-child {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible .reveal-child-1,
+.visible .reveal-child-1 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 80ms;
+}
+
+.reveal.visible .reveal-child-2,
+.visible .reveal-child-2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 160ms;
+}
+
+.reveal.visible .reveal-child-3,
+.visible .reveal-child-3 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 240ms;
+}
+
+.reveal.visible .reveal-child-4,
+.visible .reveal-child-4 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 320ms;
+}
+
+.reveal.visible .reveal-child-5,
+.visible .reveal-child-5 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 400ms;
+}
+
+/* Vertical Timeline Line Growth */
+.timeline-line {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible .timeline-line,
+.visible .timeline-line {
+  transform: scaleY(1);
+}
+
+/* Timeline Node Indicator */
+.timeline-dot {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-entry:hover .timeline-dot {
+  background-color: var(--color-accent);
+  transform: scale(1.35);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 20%, transparent);
+}
+
+/* ——— Link underline animation ——— */
+
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-underline:hover::after,
+.link-underline.active::after {
+  width: 100%;
+}
+
+/* ——— Interactive Button micro-interactions ——— */
+
+.btn-interactive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.btn-interactive:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px -2px color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+
+.btn-interactive:active {
+  transform: scale(0.98) translateY(0);
+  transition-duration: 0.08s;
+}
+
+/* ——— Social icon hover & tooltip ——— */
+
+.social-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-icon:hover {
+  color: var(--color-accent);
+  transform: translateY(-2.5px);
+}
+
+.social-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  padding: 3px 7px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background-color: var(--color-text);
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 40;
+}
+
+.social-icon-wrapper:hover .social-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ——— Skill Technology Tag Interactions ——— */
+
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  transition: color 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.skill-tag::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-accent);
+  transition: width 0.22s ease;
+}
+
+.skill-tag:hover {
+  color: var(--color-accent);
+  transform: translateY(-1.5px);
+}
+
+.skill-tag:hover::after {
+  width: 100%;
+}
+
+/* ——— Project Item / Card Support (Specs 9 & 10) ——— */
+
+.project-item {
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.project-item:hover .project-title {
+  color: var(--color-accent);
+}
+
+.project-item:hover .project-arrow {
+  transform: translateX(4px);
+}
+
+.project-image-container {
+  overflow: hidden;
+}
+
+.project-image {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-item:hover .project-image {
+  transform: scale(1.03);
+}
+
+/* ——— Theme toggle ——— */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 7px;
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.theme-toggle:hover {
+  color: var(--color-text);
+  background-color: var(--color-border-subtle);
+  border-color: var(--color-border);
+  transform: rotate(15deg);
+}
+
+.theme-toggle:active {
+  transform: scale(0.94);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background-color: var(--color-surface);
+}
+
+/* ——— Section divider ——— */
+
+.section-divider {
+  border-top: 1px solid var(--color-border);
+  transition: border-color 0.35s ease;
+}
+
+/* ——— Reduced Motion Overrides ——— */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-number,
+  .reveal-child,
+  .timeline-line {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .animate-nav-load,
+  .animate-hero-1,
+  .animate-hero-2,
+  .animate-hero-3,
+  .animate-hero-4,
+  .animate-hero-5,
+  .status-pulse {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
