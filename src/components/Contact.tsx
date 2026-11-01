@@ -40,7 +40,7 @@ export default function Contact() {
         <div className="pt-1">
           <div className="reveal-number inline-flex items-center gap-2">
             <span className="text-[12px] font-semibold tracking-[0.18em] text-[var(--color-accent)]">
-              06
+              07
             </span>
             <span className="w-3 h-px bg-[var(--color-border)] inline-block" />
             <span className="text-[12px] font-medium tracking-[0.15em] uppercase text-[var(--color-text-secondary)]">

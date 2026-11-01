@@ -22,6 +22,9 @@ export default function Education() {
               Education
             </span>
           </div>
+          <p className="mt-3 text-[13px] text-[var(--color-text-secondary)] max-w-[180px] hidden md:block leading-relaxed">
+            Academic foundation and engineering degree.
+          </p>
         </div>
 
         {/* Content */}
@@ -36,10 +39,10 @@ export default function Education() {
               </span>
             </div>
             <p className="text-[15px] text-[var(--color-accent)] font-medium">
-              Zeal College of Engineering and Research
+              Zeal College of Engineering and Research, Pune
             </p>
-            <p className="text-[14px] text-[var(--color-text-secondary)] mt-0.5">
-              Narhe, Pune, Maharashtra
+            <p className="text-[14px] text-[var(--color-text-secondary)] mt-1">
+              Savitribai Phule Pune University (SPPU)
             </p>
           </div>
         </div>

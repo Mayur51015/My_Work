@@ -4,24 +4,34 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const SKILL_CATEGORIES = [
   {
-    title: "Languages",
-    items: ["C++", "Python", "JavaScript", "C"],
-  },
-  {
     title: "Frontend",
-    items: ["React.js", "Vite", "Front-End Design", "HTML / CSS"],
+    items: ["HTML", "CSS", "JavaScript", "React.js"],
   },
   {
     title: "Backend",
-    items: ["Node.js", "Express.js", "Flask", "REST APIs"],
+    items: ["Node.js", "Express.js", "Python Flask"],
   },
   {
-    title: "Databases",
-    items: ["MySQL", "TiDB Cloud", "MongoDB"],
+    title: "Database",
+    items: ["MySQL", "TiDB Cloud", "MongoDB", "SQLite"],
   },
   {
-    title: "Tools & Methods",
-    items: ["Git", "GitHub", "Problem Solving", "Open Source"],
+    title: "Programming Languages",
+    items: ["C", "C++", "Python"],
+  },
+  {
+    title: "Developer Tools",
+    items: ["Git", "GitHub", "VS Code"],
+  },
+  {
+    title: "Core Concepts",
+    items: [
+      "REST APIs",
+      "Authentication",
+      "CRUD Operations",
+      "Database Management",
+      "Version Control",
+    ],
   },
 ];
 
@@ -51,11 +61,11 @@ export default function Skills() {
         </div>
 
         {/* Skills grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-x-8 gap-y-10">
           {SKILL_CATEGORIES.map((cat, catIdx) => (
             <div
               key={cat.title}
-              className={`reveal-child reveal-child-${Math.min(5, catIdx + 1)}`}
+              className={`reveal-child reveal-child-${Math.min(5, (catIdx % 5) + 1)}`}
             >
               <h3 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-[var(--color-accent)] mb-4">
                 {cat.title}

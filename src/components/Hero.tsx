@@ -52,6 +52,18 @@ export default function Hero() {
               →
             </span>
           </a>
+          <a
+            href="/Mayur_Khandare_Resume.pdf"
+            download="Mayur_Khandare_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-interactive group px-5 py-2.5 text-[13px] font-medium tracking-[0.06em] uppercase border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-text)] hover:text-[var(--color-accent)]"
+          >
+            <span>Download Resume</span>
+            <span className="ml-1.5 inline-block transition-transform duration-200 group-hover:translate-y-0.5">
+              ↓
+            </span>
+          </a>
 
           {/* Social icons */}
           <div className="animate-hero-4 flex items-center gap-2 ml-2">
