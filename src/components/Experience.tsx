@@ -271,7 +271,7 @@ export default function Experience() {
                   {/* Header: Organization first, Year and metadata */}
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-1.5">
                     <div className="flex flex-wrap items-center gap-2.5">
-                      <h3 className="text-[1.12rem] font-medium text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors duration-200 inline-flex items-center gap-1.5">
+                      <h3 className="text-[1.12rem] font-medium text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors duration-200 inline-flex flex-wrap items-center gap-1.5 leading-snug">
                         <span>{exp.company}</span>
                         <span className="text-[var(--color-accent)] opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-sm">
                           →
@@ -293,7 +293,7 @@ export default function Experience() {
                   </div>
 
                   {/* Role, Program, Date, Duration, Location */}
-                  <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[13px] text-[var(--color-text-secondary)] mb-3">
+                  <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[13px] text-[var(--color-text-secondary)] mb-3 leading-relaxed">
                     <span className="font-medium text-[var(--color-accent)]">
                       {exp.role}
                     </span>

@@ -20,10 +20,29 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
-  // Scroll listener for navbar style changes
+  // Scroll listener for navbar style changes (optimized for mobile 60fps)
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 28);
+    let isScrolled = false;
+    let ticking = false;
+
+    const handleScroll = () => {
+      const shouldBeScrolled = window.scrollY > 28;
+      if (shouldBeScrolled !== isScrolled) {
+        isScrolled = shouldBeScrolled;
+        setScrolled(shouldBeScrolled);
+      }
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(handleScroll);
+        ticking = true;
+      }
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 

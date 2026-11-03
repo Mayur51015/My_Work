@@ -10,7 +10,7 @@ interface ScrollRevealOptions {
 export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
   options: ScrollRevealOptions = {}
 ) {
-  const { threshold = 0.1, rootMargin = "0px 0px -30px 0px" } = options;
+  const { threshold = 0.04, rootMargin = "0px 0px -10px 0px" } = options;
   const ref = useRef<T>(null);
 
   useEffect(() => {

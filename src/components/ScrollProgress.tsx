@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function ScrollProgress() {
-  const [progress, setProgress] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let ticking = false;
@@ -13,7 +13,12 @@ export default function ScrollProgress() {
       const winHeightPx =
         document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = winHeightPx > 0 ? scrollPx / winHeightPx : 0;
-      setProgress(Math.min(1, Math.max(0, scrolled)));
+      const clamped = Math.min(1, Math.max(0, scrolled));
+
+      if (barRef.current) {
+        barRef.current.style.transform = `scaleX(${clamped})`;
+        barRef.current.style.opacity = clamped > 0.005 ? "1" : "0";
+      }
       ticking = false;
     };
 
@@ -32,11 +37,12 @@ export default function ScrollProgress() {
 
   return (
     <div
+      ref={barRef}
       aria-hidden="true"
-      className="fixed top-0 left-0 right-0 h-[2px] bg-[var(--color-accent)] z-[60] origin-left pointer-events-none transition-transform duration-75 ease-out"
+      className="fixed top-0 left-0 right-0 h-[2px] bg-[var(--color-accent)] z-[60] origin-left pointer-events-none"
       style={{
-        transform: `scaleX(${progress})`,
-        opacity: progress > 0.005 ? 1 : 0,
+        transform: "scaleX(0)",
+        opacity: 0,
       }}
     />
   );

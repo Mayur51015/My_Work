@@ -12,7 +12,7 @@ export default function Hero() {
         </p>
 
         {/* Name */}
-        <h1 className="animate-hero-1 text-[clamp(2.4rem,5vw,4rem)] font-medium leading-[1.1] tracking-[-0.02em] text-[var(--color-text)] mb-6">
+        <h1 className="animate-hero-1 text-[clamp(2.4rem,5vw,4rem)] font-medium leading-[1.15] sm:leading-[1.1] tracking-[-0.02em] text-[var(--color-text)] mb-6">
           Mayur Khandare
           <span className="text-[var(--color-accent)] inline-block transition-transform duration-300 hover:scale-125 cursor-default">
             .

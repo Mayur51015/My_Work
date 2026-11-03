@@ -79,7 +79,7 @@ export default function Certifications() {
               )} pb-5 border-b border-[var(--color-border)]/50 last:border-b-0 group`}
             >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                <h3 className="text-[1.08rem] font-medium text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors duration-200 inline-flex flex-wrap items-center gap-2">
+                <h3 className="text-[1.08rem] font-medium text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors duration-200 inline-flex flex-wrap items-center gap-2 leading-snug">
                   <span>{cert.title}</span>
                   {cert.role && (
                     <span className="text-[var(--color-text-secondary)] font-normal text-[14px]">
